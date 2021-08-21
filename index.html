@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>classic clock</title>
+    <link rel="stylesheet" href="./static/css/styles.css" />
+</head>
+
+<body>
+
+    <div class="clock-face">
+        <div class="hand hour"></div>
+        <div class="hand minute"></div>
+        <div class="hand second"></div>
+    </div>
+
+    <script>
+
+        const secondHand = document.querySelector(".second");
+        const minuteHand = document.querySelector(".minute");
+        const hourHand = document.querySelector(".hour");
+        setInterval((setTime) => {
+            const date = new Date();
+            const seconds = date.getSeconds();
+            const minutes = date.getMinutes();
+            const hours = date.getHours();
+            const secondDegre = ((seconds / 60) * 360);
+            const minuteDegre = ((minutes / 60) * 360);
+            const hourDegre = ((hours / 12) * 360);
+            secondHand.style.transform = `rotate(${secondDegre}deg)`;
+            minuteHand.style.transform = `rotate(${minuteDegre}deg)`;
+            hourHand.style.transform = `rotate(${hourDegre}deg)`;
+        },1000)
+
+    </script>
+
+</body>
+
+</html>
